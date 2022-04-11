@@ -6,15 +6,32 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         
-        <title>GoshaGui Beta 1.0</title>
+        <title>GoshaGui Beta 2.0</title>
 
         <link rel="shortcut icon" href="data/Pictures/Gosha1.png" type="image/png">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <img src="data/Pictures/Untitled.png" alt="Settings" class="Sett_Btn" id="Sett_Btn">
+        <div class="settings" id="settings">
+            <form>
+                <h4 class="sett__help">Введи номер микрофона: </h4>
+                <div class="cont">
+                    <input maxlength="10" size="5" value="Вот тут :3" class="inp">
+                    <button class="btn__enter" onclick="ChangeSett()">Ввести</button>
+                    <hr>
+                    <button class="btn__enter2" onclick="PrintMicr1()">Запросить список микрофонов</button>
+                </div>
+            </form>
+            <hr>
+            <h4 class="donate">
+                На покушать автору:
+            </h4>
+            <a href="#" class="donate__link">Пусто</a>
+        </div>
         <div class="content">
-            <h4 class="text__recog">который час</h4>
-            <img src="data/Pictures/Gosha1.png" alt="Gosha__Btn" class="Gosha">
+            <h4 class="text__recog">нажми и говори</h4>
+            <img src="data/Pictures/Gosha1.png" alt="Gosha__Btn" class="Gosha" id="Gosha">
         </div>
 
         <script type="text/javascript" src="../eel.js"></script>

@@ -42,12 +42,19 @@ help_list = "Время\nПомощь\nПогода\nДокументация\n�
 with open("vocabulary.json", "r", encoding="UTF=8") as read_file: 
     b_voc = json.load(read_file)
 
+#Микрофон и цвет
+with open("config.json", "r") as read_file: 
+    b = json.load(read_file)
+
 # Звуки
-sound_click = pg.mixer.Sound(os.path.dirname(os.path.abspath(__file__)) + "\\web\\data\\Sounds\\2.wav")
-sound_start = pg.mixer.Sound(os.path.dirname(os.path.abspath(__file__)) + "\\web\\data\\Sounds\\1.wav")
+sound_click = pg.mixer.Sound(os.path.dirname(os.path.abspath(__file__)) + "\\web\\data\\Sounds\\3.mp3")
 
 #Шутки
 joke1 = ["Я не знаю шуток! ха-ха!",  "Знаешь почему курица перешла дорогу? Потому что она умеет ходить! ха-ха!", "Россия - страна непойманных воров и вечно будущего счастья...", "Если вдоль зебры лежат полицейские, значит, охота не удалась.","Детство - это когда кот старше тебя.","Идея тонкого комплимента: 'Маска тебе к лицу!'","Очень боюсь, что хакеры сольют в сеть мои интимные фото. И они никому не понравятся."]
+
+#Список микрофонов
+type_micr = sr.Microphone.list_microphone_names()
+typemicrlist = []
 
 #Функции------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #Распознавание голоса
@@ -56,7 +63,7 @@ def voice():
     try:
         r = sr.Recognizer()
 
-        with sr.Microphone(device_index=3) as source:
+        with sr.Microphone(device_index=b["microphoneType"]) as source:
             audio = r.listen(source)
 
         what = r.recognize_google(audio, language = "ru-RU").lower()
@@ -87,9 +94,6 @@ def help():
 	speak("Список комманд: ")
 	speak(help_list)
 
-#Стартовый звук
-sound_start.play()
-
 #Основной цикл функций---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 @eel.expose
 #Распознавание голоса
@@ -119,6 +123,22 @@ def main():
     else:
         speak("Я тебя не понял, что-то не так в твоем вопросе")
         return what
+
+@eel.expose
+def changesett(valueSet):
+    value = {
+        "microphoneType": int(valueSet)
+    }
+    valueSet = json.dumps(value)
+    valueSet = json.loads(valueSet)
+    with open("config.json", "w", encoding='utf-8') as file:
+        json.dump(valueSet, file, indent=4)
+
+@eel.expose
+def PrintMicr():
+    for i in range(len(type_micr)):
+        typemicrlist.append(str(i) + ". " + type_micr[i] + "\n")
+    return typemicrlist
 
 #Start программы
 eel.start("index.html", size=(500,700))

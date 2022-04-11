@@ -13,10 +13,33 @@ body, html {
     
 }
 
+@keyframes fade-in {
+    0% {
+        transform: rotate(90deg);
+    }
+
+    25% {
+        width: 7.5em;
+        height: 7.5em;
+
+        transform: rotate(360deg);
+    }
+
+    100% {
+        width: 7em;
+        height: 7em;
+    }
+}
+
 .Gosha {
+    transform: rotate(360deg);
+    
     width: 7em;
     height: 7em;
+}
 
+.fade-in {
+    animation: fade-in 1s;
 }
 
 .text__recog {
@@ -24,6 +47,7 @@ body, html {
     font-family: 'Trebuchet MS', sans-serif;
 
     text-align: center;
+    transition: ease-in-out 0.4s;
 }
 
 .content {
@@ -34,4 +58,109 @@ body, html {
     justify-content: flex-end;
     align-items: center;
     flex-direction: column;
+}
+
+.Sett_Btn {
+    position: absolute;
+    width: 4em;
+}
+
+.settings {
+    margin-left: 5em;
+    margin-top: 0.2em;
+    
+    background-color: rgb(18, 12, 65);
+    position: absolute;
+
+    border-radius: 10px;
+
+    width: 20em;
+    height: 9.8em;
+
+    transition: ease-in-out 0.1s;
+
+    opacity: 0;
+}
+
+.donate {
+    color: rgb(118, 107, 206);
+    font-family: 'Trebuchet MS', sans-serif;
+    margin-left: 0.5em;
+    margin-top: 0.5em;
+}
+
+.donate__link {
+    margin-top: -1.2em;
+    margin-left: 0.5em;
+
+    position: absolute;
+
+    color: red;
+
+    font-family: 'Trebuchet MS', sans-serif;
+
+    text-decoration: none;
+}
+
+.sett__help {
+    color: rgb(118, 107, 206);
+    font-family: 'Trebuchet MS', sans-serif;
+    margin-left: 0.5em;
+    margin-top: 0.2em;
+    position: absolute;
+}
+
+.inp {
+    margin-top: 2.2em;
+    margin-left: 0.5em;
+
+    padding: 4px;
+
+    border-radius: 5px;
+
+    border: none;
+
+    background-color: rgb(118, 107, 206);
+}
+
+hr {
+    margin-left: 0.5em;
+    
+    background-color: rgb(68, 0, 255);
+    
+    height: 1px;
+    width: 15em;
+
+    border: none;
+    border-radius: 10px;
+}
+
+.btn__enter {
+    border-radius: 5px;
+    border: none;
+
+    padding: 4px;
+    background-color: rgb(201, 198, 219);
+
+    transition: ease-in-out 0.3s;
+}
+
+.btn__enter:hover {
+    background-color: rgb(33, 216, 103);
+}
+
+.btn__enter2 {
+    border-radius: 5px;
+    border: none;
+
+    margin-left: 0.5em;
+
+    padding: 4px;
+    background-color: rgb(201, 198, 219);
+
+    transition: ease-in-out 0.3s;
+}
+
+.btn__enter2:hover {
+    background-color: rgb(33, 216, 103);
 }
