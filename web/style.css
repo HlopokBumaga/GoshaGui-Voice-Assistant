@@ -13,15 +13,14 @@ body, html {
     
 }
 
+/* Анимации */
+
 @keyframes fade-in {
     0% {
         transform: rotate(90deg);
     }
 
     25% {
-        width: 7.5em;
-        height: 7.5em;
-
         transform: rotate(360deg);
     }
 
@@ -31,11 +30,29 @@ body, html {
     }
 }
 
+@keyframes spanim {
+    0% {
+        filter: brightness(100%);
+    }
+
+    50% {
+        filter: brightness(50%);
+    }
+
+    100% {
+        filter: brightness(100%);
+    }
+}
+
+/* Основа */
+
 .Gosha {
     transform: rotate(360deg);
     
     width: 7em;
     height: 7em;
+
+    transition: ease-in-out 0.4s;
 }
 
 .fade-in {
@@ -44,11 +61,53 @@ body, html {
 
 .text__recog {
     color: white;
-    font-family: 'Trebuchet MS', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 
     text-align: center;
     transition: ease-in-out 0.4s;
 }
+
+.sp {
+    width: 8em;
+    height: 1em;
+
+    opacity: 0;
+    animation: none;
+
+    transition: ease-in-out 0.4s;
+}
+
+.cont2 {
+    opacity: 0;
+
+    transition: ease-in-out 0.4s;
+}
+
+.inp2 {
+    color: gray;
+
+    width: 13em;
+    height: 3em;
+
+    border: none;
+
+    border-radius: 2px;    
+}
+
+.btn__enter3 {
+    height: 3.07em;
+
+    border-radius: 2px;
+    border: none;
+
+    background: #39CC96;
+    background: linear-gradient(to bottom right, #39CC96, #634084);
+
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Настройки */
 
 .content {
     width: 100vw;
@@ -72,10 +131,8 @@ body, html {
     background-color: rgb(18, 12, 65);
     position: absolute;
 
-    border-radius: 10px;
-
     width: 20em;
-    height: 9.8em;
+    height: 10.5em;
 
     transition: ease-in-out 0.1s;
 
@@ -84,7 +141,7 @@ body, html {
 
 .donate {
     color: rgb(118, 107, 206);
-    font-family: 'Trebuchet MS', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin-left: 0.5em;
     margin-top: 0.5em;
 }
@@ -97,14 +154,14 @@ body, html {
 
     color: red;
 
-    font-family: 'Trebuchet MS', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 
     text-decoration: none;
 }
 
 .sett__help {
     color: rgb(118, 107, 206);
-    font-family: 'Trebuchet MS', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin-left: 0.5em;
     margin-top: 0.2em;
     position: absolute;
@@ -114,9 +171,9 @@ body, html {
     margin-top: 2.2em;
     margin-left: 0.5em;
 
-    padding: 4px;
+    font-family: 'Open Sans', sans-serif;
 
-    border-radius: 5px;
+    padding: 4px;
 
     border: none;
 
@@ -136,11 +193,11 @@ hr {
 }
 
 .btn__enter {
-    border-radius: 5px;
     border: none;
 
     padding: 4px;
     background-color: rgb(201, 198, 219);
+    font-family: 'Open Sans', sans-serif;
 
     transition: ease-in-out 0.3s;
 }
@@ -150,7 +207,6 @@ hr {
 }
 
 .btn__enter2 {
-    border-radius: 5px;
     border: none;
 
     margin-left: 0.5em;
@@ -159,8 +215,21 @@ hr {
     background-color: rgb(201, 198, 219);
 
     transition: ease-in-out 0.3s;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .btn__enter2:hover {
     background-color: rgb(33, 216, 103);
+}
+
+.faqlink {
+    margin-left: 0.5em;
+
+    /* position: absolute; */
+
+    color: red;
+
+    font-family: 'Open Sans', sans-serif;
+
+    text-decoration: none;
 }
